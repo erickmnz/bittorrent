@@ -47,7 +47,7 @@ int main(int argc, char* argv[]) {
             
         const char* encoded_str = argv[2];
         char* decoded_str = decode_bencode(encoded_str);
-        printf("\"%s\"\n", decoded_str);
+        printf("%s\n", decoded_str);
         free(decoded_str);
     } else {
         fprintf(stderr, "Unknown command: %s\n", command);
