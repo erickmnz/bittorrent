@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
 
     if (strcmp(command, "decode") == 0) {
     	// You can use print statements as follows for debugging, they'll be visible when running tests.
-        printf("Logs from your program will appear here!\n");
+        //printf("Logs from your program will appear here!\n");
             
         const char* encoded_str = argv[2];
         char* decoded_str = decode_bencode(encoded_str);
