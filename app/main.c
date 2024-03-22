@@ -33,9 +33,9 @@ char *decode_bencode(const char *bencoded_value)
     else if (bencoded_value[0] == 'i')
     {
         type=1;
-        char *substring = (char *)malloc(length - 2);
-        strncpy(substring, bencoded_value + 1, length - 2);
-        substring[length] = '\0';
+        char *substring = (char *)malloc(length - 1);
+        strncpy(substring, bencoded_value + 1, length - 1);
+        substring[length-2] = '\0';
         return substring;
     }
     else
