@@ -8,8 +8,8 @@ bool is_digit(char c) {
 }
 
 char* decode_bencode(const char* bencoded_value) {
+    int length = strlen(bencoded_value);
     if (is_digit(bencoded_value[0])) {
-        int length = atoi(bencoded_value);
         const char* colon_index = strchr(bencoded_value, ':');
         if (colon_index != NULL) {
             const char* start = colon_index + 1;
@@ -22,10 +22,9 @@ char* decode_bencode(const char* bencoded_value) {
             exit(1);
         }
     }else if(bencoded_value[0]=='i'){
-        int lenght = strlen(bencoded_value)-2;
-        char* substring = (char*)malloc(lenght);
-        strncpy(substring,bencoded_value+1,lenght);
-        substring[lenght]='\0';
+        char* substring = (char*)malloc(length-2);
+        strncpy(substring,bencoded_value+1,length-2);
+        substring[length]='\0';
         return substring;
     }else {
         fprintf(stderr, "Only strings are supported at the moment\n");
