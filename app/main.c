@@ -21,7 +21,13 @@ char* decode_bencode(const char* bencoded_value) {
             fprintf(stderr, "Invalid encoded value: %s\n", bencoded_value);
             exit(1);
         }
-    } else {
+    }else if(bencoded_value[0]=='i'){
+        int lenght = strlen(bencoded_value)-2;
+        char* substring = (char*)malloc(lenght);
+        strncpy(substring,bencoded_value+1,lenght);
+        substring[lenght]='\0';
+        return substring;
+    }else {
         fprintf(stderr, "Only strings are supported at the moment\n");
         exit(1);
     }
